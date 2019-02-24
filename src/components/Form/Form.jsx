@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Input from '../Input/Input';
+import Question from '../Question/Question';
 import { Button, Label } from '../FormComponents/FormComponents';
 
 const QUESTIONS = [
-    { question: 'Quantos filmes a série Harry Potter tem?', answer: '7' },
+    { question: 'Quantos filmes a série Harry Potter tem?', answer: '8' },
     { question: 'Nome do ator que atua como Harry Potter?', answer: 'Daniel Radcliffe' },
     { question: 'Harry Potter tinha um animal de estimação? Se sim, qual animal era e qual era o nome desse animal?', answer: 'Edwiges' },
     { question: 'Como são chamados as pessoas que não são bruxos?', answer: 'Trouxas' },
@@ -28,6 +28,11 @@ class Form extends Component {
         this.setState({ shouldSubmit: value })
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.changeShouldSubmit(true);
+    }
+
     render() {
         const { correctAnswers } = this.props;
         const { shouldSubmit } = this.state;
@@ -36,12 +41,14 @@ class Form extends Component {
                 {
                     QUESTIONS.map((elem, idx) => {
                         return (
-                            <Input
-                                key={idx}
-                                question={elem.question}
-                                answer={elem.answer}
-                                shouldSubmit={shouldSubmit}
-                            />
+                            <form key={idx} onSubmit={this.handleSubmit}>
+                                <Question
+                                    key={idx}
+                                    question={elem.question}
+                                    answer={elem.answer}
+                                    shouldSubmit={shouldSubmit}
+                                />
+                            </form>
                         )
                     })
                 }

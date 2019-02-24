@@ -1,0 +1,20 @@
+.answer-input {
+    display: block;
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 6px;
+}
+
+.answer-input:hover {
+    background-color:  #FAFAFA;
+}
+
+.answer-input:focus {
+    outline-color: transparent;
+}
+
+.answer-input:disabled {
+    background-color:  #F2F2F2;
+}
