@@ -1,0 +1,10 @@
+.home-container {
+    width: 50%;
+    height: 50%;
+    line-height: 30px;
+    position: absolute;
+    top: 30%;
+    margin-top: -25vh;
+    left: 50%;
+    margin-left: -25vw;
+}
